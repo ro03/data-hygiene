@@ -2,9 +2,9 @@ const { App } = require('@slack/bolt');
 
 // Initializes your app with your bot token and signing secret
 const app = new App({
-  token: process.env.SLACK_BOT_TOKEN,[cite: 2]
-  signingSecret: process.env.SLACK_SIGNING_SECRET,[cite: 2]
-  socketMode: false[cite: 2]
+  token: process.env.SLACK_BOT_TOKEN,
+  signingSecret: process.env.SLACK_SIGNING_SECRET,
+  socketMode: false
 });
 
 // 1. Trigger the form when a user uses the existing /ask slash command
@@ -109,14 +109,14 @@ app.view('message_form_submission', async ({ ack, body, view, client }) => {
 });
 
 // This function will be triggered when a user uses the /groups slash command
-app.command('/groups', async ({ ack, say }) => {[cite: 2]
-  await ack();[cite: 2]
-  await say('This is where the user group creation logic will go!');[cite: 2]
-});[cite: 2]
+app.command('/groups', async ({ ack, say }) => {
+  await ack();
+  await say('This is where the user group creation logic will go!');
+});
 
 // This is the code that starts the web server
-(async () => {[cite: 2]
-  const port = process.env.PORT || 3000;[cite: 2]
-  await app.start(port);[cite: 2]
-  console.log(`⚡️ Bolt app is running on port ${port}!`);[cite: 2]
-})();[cite: 2]
+(async () => {
+  const port = process.env.PORT || 3000;
+  await app.start(port);
+  console.log(`⚡️ Bolt app is running on port ${port}!`);
+})();
